@@ -25,7 +25,11 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'spotify-clone-secret-key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: process.env.NODE_ENV === 'production' } // Auto-enable for HTTPS in production
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        httpOnly: true
+    }
 }));
 
 // Configure Multer for file storage
