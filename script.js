@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let isRegistering = false;
     let currentUser = null;
 
-    const API_URL = 'http://localhost:3000';
+    const API_URL = window.location.origin;
 
     // Check Login Status on Load
     fetch(`${API_URL}/me`, { credentials: 'include' })

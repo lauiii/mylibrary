@@ -12,7 +12,7 @@ const USERS_FILE = path.join(__dirname, 'users.json');
 
 // Middleware
 app.use(cors({
-    origin: true, // Allow any origin
+    origin: process.env.FRONTEND_URL || true, // Allow any origin in dev, restrict in prod
     credentials: true // Allow cookies
 }));
 app.use(express.json());
@@ -22,10 +22,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Session Configuration
 app.use(session({
-    secret: 'spotify-clone-secret-key', // In prod, use env var
+    secret: process.env.SESSION_SECRET || 'spotify-clone-secret-key',
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false } // Set to true if using HTTPS
+    cookie: { secure: process.env.NODE_ENV === 'production' } // Auto-enable for HTTPS in production
 }));
 
 // Configure Multer for file storage
