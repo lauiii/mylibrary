@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Media Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fab fa-spotify"></i>
+            <span>My Library</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active"><i class="fas fa-home"></i> Home</li>
+            <li><i class="fas fa-search"></i> Search</li>
+            <li><i class="fas fa-book"></i> Your Library</li>
+        </ul>
+        <div class="upload-section">
+            <button id="upload-btn" class="upload-btn">
+                <i class="fas fa-plus"></i> Upload Media
+            </button>
+            <input type="file" id="file-input" accept="audio/*,video/*" multiple hidden>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="nav-arrows">
+                <div class="arrow"><i class="fas fa-chevron-left"></i></div>
+                <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+            </div>
+            <div class="user-menu">
+                <div class="user-icon"><i class="fas fa-user"></i></div>
+            </div>
+        </header>
+
+        <div class="content-container">
+            <h2>Your Recordings</h2>
+            <div class="media-grid" id="media-grid">
+                <!-- Media items will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
